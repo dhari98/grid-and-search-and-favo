@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">My Best App</string>
+    <string name="imageViweSound">imageViweSound</string>
+    <string name="imageViewLike">imageViewLike</string>
+    <string name="textviewWorld">textviewWorld</string>
+    <string name="textviewWorld2">textviewWorld2</string>
+    <string name="textviewWorld3">textviewWorld3</string>
+    <string name="todo" />
+    <string name="title">title</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="search">search</string>
+    <string name="title_activity_favo">FavoActivity</string>
+    <string name="title_activity_main4">MainActivity4</string>
+</resources>
