@@ -14,6 +14,8 @@ import kotlin.collections.ArrayList
 class MainActivity : AppCompatActivity() {
 
 
+
+
     private lateinit var photoAdapter: PhotoAdapter
 
 
@@ -29,18 +31,21 @@ class MainActivity : AppCompatActivity() {
         photoAdapter = PhotoAdapter()
         recyclerView.adapter = photoAdapter
 
-        dataList.add(DataModel("الحروف ", R.drawable.admin))
-        dataList.add(DataModel("المفضلة ", R.drawable.admin))
-        dataList.add(DataModel("فصول السنه ", R.drawable.admin))
-        dataList.add(DataModel("فارغ ", R.drawable.admin))
-        dataList.add(DataModel("فارغ ", R.drawable.admin))
-        dataList.add(DataModel("فارغ ", R.drawable.admin))
-        dataList.add(DataModel("فارغ ", R.drawable.admin))
-        dataList.add(DataModel("فارغ ", R.drawable.admin))
-        dataList.add(DataModel("فارغ ", R.drawable.admin))
-        dataList.add(DataModel("فارغ ", R.drawable.admin))
-        dataList.add(DataModel("فارغ ", R.drawable.admin))
-        dataList.add(DataModel("فارغ ", R.drawable.admin))
+        dataList.add(DataModel("الحروف ", R.drawable.admin,0))
+        dataList.add(DataModel("المفضلة ", R.drawable.admin,1))
+        dataList.add(DataModel("فصول السنه ", R.drawable.admin,2))
+
+
+
+        dataList.add(DataModel("فارغ ", R.drawable.admin,3))
+        dataList.add(DataModel("فارغ ", R.drawable.admin,4))
+        dataList.add(DataModel("فارغ ", R.drawable.admin,5))
+        dataList.add(DataModel("فارغ ", R.drawable.admin,6))
+        dataList.add(DataModel("فارغ ", R.drawable.admin,7))
+        dataList.add(DataModel("فارغ ", R.drawable.admin,8))
+        dataList.add(DataModel("فارغ ", R.drawable.admin,9))
+        dataList.add(DataModel("فارغ ", R.drawable.admin,10))
+        dataList.add(DataModel("فارغ ", R.drawable.admin,11))
 
 
         photoAdapter.setDataList(dataList)

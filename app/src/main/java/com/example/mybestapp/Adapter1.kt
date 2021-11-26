@@ -22,7 +22,6 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>): RecyclerVi
 
         val currentItemExample3 = exampleList3[position]
 
-        // currentItemExample3.imageViewWorld.let { holder.imageView1.setImageResource(it) }
         currentItemExample3.imageViewLike.let { holder.imageView2.setImageResource(it) }
         currentItemExample3.imageViewSound.let { holder.imageView3.setImageResource(it) }
 
@@ -30,8 +29,14 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>): RecyclerVi
         holder.textView2.text = currentItemExample3.text2
         holder.textView3.text = currentItemExample3.text3
 
+
+
+
         holder.my_data3 = currentItemExample3
     }
+
+
+
 
     override fun getItemCount() = exampleList3.size
 
@@ -41,12 +46,6 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>): RecyclerVi
 
 
         val imageView2: ImageView = itemView.imageViewLike
-
-        init {
-            imageView2.setOnClickListener {
-            }
-
-        }
 
         val imageView3: ImageView = itemView.imageViewSound
         init {
@@ -91,6 +90,10 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>): RecyclerVi
                 val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
                 mediaPlayer?.start()
             }
+                if (position == 10) {
+                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
+                    mediaPlayer?.start()
+                }
 
 
 
@@ -106,3 +109,33 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>): RecyclerVi
 }
 
 
+/*
+
+
+            if (MainActivity.FavoriteDatabase!!.favoriteDao()!!
+                    .isFavorite(example_item4.id) == 1
+            )
+                holder.favorite.setImageResource(R.drawable.like) else holder.favorite.setImageResource(
+                R.drawable.unlike
+            )
+            holder.favorite.setOnClickListener {
+                val favoriteEntity = Example4()
+
+                val id = .id
+                val textView1 = example_item4.textView1
+                val textView2 = example_item4.textView2
+                val textView3 = example_item4.textView3
+
+
+                if (MainActivity.favoriteDatabase!!.favoriteDao()!!.isFavorite(id) != 1) {
+                    holder.favorite.setImageResource(R.drawable.like)
+                    MainActivity.favoriteDatabase!!.favoriteDao()!!.addData(Example4)
+                } else {
+                    holder.favorite.setImageResource(R.drawable.unlike)
+                    MainActivity.favoriteDatabase!!.favoriteDao()!!.delete(Example4)
+                }
+
+
+            }
+
+ */

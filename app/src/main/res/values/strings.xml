@@ -19,4 +19,7 @@
     <string name="search">search</string>
     <string name="title_activity_favo">FavoActivity</string>
     <string name="title_activity_main4">MainActivity4</string>
+    <string name="title_activity_favo_adapter">FavoAdapter</string>
+    <string name="fimg_pr">fim_pr</string>
+    <string name="ftv_name">ftv_name</string>
 </resources>

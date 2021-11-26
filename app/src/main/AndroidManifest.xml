@@ -10,6 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyBestApp">
         <activity
+            android:name=".FavoActivity"
+            android:exported="false"
+            android:label="@string/title_activity_favo"
+            android:theme="@style/Theme.MyBestApp.NoActionBar" />
+        <activity
+            android:name=".FavoAdapter"
+            android:exported="false"
+            android:label="@string/title_activity_favo_adapter"
+            android:theme="@style/Theme.MyBestApp.NoActionBar" />
+        <activity
+            android:name=".FaouriteActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity4"
             android:exported="false"
             android:label="@string/title_activity_main4"
@@ -18,11 +31,6 @@
             android:name=".MainActivity2"
             android:exported="false"
             android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.MyBestApp.NoActionBar" />
-        <activity
-            android:name=".FavoActivity"
-            android:exported="false"
-            android:label="@string/title_activity_favo"
             android:theme="@style/Theme.MyBestApp.NoActionBar" />
         <activity
             android:name=".MainActivity3"

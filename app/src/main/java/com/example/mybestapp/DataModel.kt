@@ -1,7 +1,11 @@
 package com.example.mybestapp
 
 
-data class DataModel(
+data class DataModel (
+
     var title : String,
-    var image : Int
+    var image : Int,
+    val id :Int = -1
+
 )
+
