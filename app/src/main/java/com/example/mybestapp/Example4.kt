@@ -1,8 +1,8 @@
 
 package com.example.mybestapp
 
+
 import androidx.room.ColumnInfo
-import androidx.room.Dao
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -11,9 +11,9 @@ import androidx.room.PrimaryKey
 data class Example4(
 
 
-    @ColumnInfo val   imageViewLike: Int,
+    @ColumnInfo val imageViewLike: Int,
 
-    @ColumnInfo val   imageViewSound: Int,
+    @ColumnInfo val imageViewSound: Int,
 
     @ColumnInfo val text1: String,
 
@@ -22,9 +22,10 @@ data class Example4(
     @ColumnInfo val text3: String,
 
     @PrimaryKey
-    val id : Int =-1
+    val id: Int = -1,
 
-    )
+    @ColumnInfo val isFavorite: Boolean = true
+)
 
 
 

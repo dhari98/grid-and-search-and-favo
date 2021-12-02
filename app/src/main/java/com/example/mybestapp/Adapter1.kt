@@ -10,7 +10,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.example_item4.view.*
 
-class ExampleAdapter3(private val exampleList3: ArrayList<Example4>): RecyclerView.Adapter<ExampleAdapter3.ExampleViewHolder> () {
+class ExampleAdapter3(private val exampleList3: ArrayList<Example4>) :
+    RecyclerView.Adapter<ExampleAdapter3.ExampleViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExampleViewHolder {
 
@@ -18,7 +19,8 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>): RecyclerVi
             LayoutInflater.from(parent.context).inflate(R.layout.example_item4, parent, false)
         return ExampleViewHolder(itemView3)
     }
-    override  fun onBindViewHolder(holder: ExampleViewHolder, position: Int) {
+
+    override fun onBindViewHolder(holder: ExampleViewHolder, position: Int) {
 
         val currentItemExample3 = exampleList3[position]
 
@@ -28,14 +30,24 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>): RecyclerVi
         holder.textView1.text = currentItemExample3.text1
         holder.textView2.text = currentItemExample3.text2
         holder.textView3.text = currentItemExample3.text3
-
-
-
-
         holder.my_data3 = currentItemExample3
+
+
+
+
+
+        holder.imageView2.setOnClickListener {
+            val dataBaseDao = FavoriteDatabase.getInstance(holder.itemView.context)?.favoriteDao()
+            val item = dataBaseDao?.getItem(exampleList3[position].id)
+            if (item == null) {
+                dataBaseDao?.addData(exampleList3[position].copy(isFavorite = true))
+                holder.imageView2.setImageResource(R.drawable.like)
+            } else {
+                dataBaseDao.addData(item.copy(isFavorite = !item.isFavorite))
+                holder.imageView2.setImageResource(R.drawable.unlike)
+            }
+        }
     }
-
-
 
 
     override fun getItemCount() = exampleList3.size
@@ -48,6 +60,7 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>): RecyclerVi
         val imageView2: ImageView = itemView.imageViewLike
 
         val imageView3: ImageView = itemView.imageViewSound
+
         init {
             imageView3.setOnClickListener {
                 if (position == 0) {
@@ -81,23 +94,22 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>): RecyclerVi
                 if (position == 7) {
                     val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
                     mediaPlayer?.start()
-            }
-            if (position == 8) {
-                val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
-                mediaPlayer?.start()
-            }
-            if (position == 9) {
-                val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
-                mediaPlayer?.start()
-            }
+                }
+                if (position == 8) {
+                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
+                    mediaPlayer?.start()
+                }
+                if (position == 9) {
+                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
+                    mediaPlayer?.start()
+                }
                 if (position == 10) {
                     val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
                     mediaPlayer?.start()
                 }
 
 
-
-        }
+            }
         }
 
         val textView1: TextView = itemView.textViewWorld

@@ -15,7 +15,7 @@ class FavoriteAdapter(private val favoriteListEnteties: List<Example4>): Recycle
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExampleViewHolder {
 
         val itemView3 =
-            LayoutInflater.from(parent.context).inflate(R.layout.activity_favo, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.example_item4, parent, false)
         return ExampleViewHolder(itemView3)
     }
 
@@ -48,6 +48,7 @@ class FavoriteAdapter(private val favoriteListEnteties: List<Example4>): Recycle
         val textView3: TextView = itemView.textViewWorld3
     }
 }
+
 
 
 
