@@ -25,7 +25,10 @@ data class Example4(
     val id: Int = -1,
 
     @ColumnInfo val isFavorite: Boolean = true
+
+// @ColumnInfo val isFavorite: Boolean = false
 )
+
 
 
 

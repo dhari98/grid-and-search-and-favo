@@ -39,6 +39,20 @@
             tools:ignore="ImageContrastCheck" />
 
 
+
+        <TextView
+            android:id="@+id/textViewWorld3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewWorld2"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_toStartOf="@+id/imageViewLike"
+            android:text="@string/textviewWorld3"
+            android:textColor="#263238"
+            android:textSize="27sp"
+            />
+
         <TextView
             android:id="@+id/textViewWorld"
             android:layout_width="wrap_content"
@@ -61,20 +75,7 @@
             android:textColor="#263238"
             android:textSize="27sp" />
 
-        <TextView
-            android:id="@+id/textViewWorld3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewWorld2"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="0dp"
-            android:layout_toStartOf="@+id/imageViewLike"
-            android:text="@string/textviewWorld3"
-            android:textColor="#263238"
-            android:textSize="27sp" />
-
-
-    </RelativeLayout>
+</RelativeLayout>
 
 
 </androidx.cardview.widget.CardView>

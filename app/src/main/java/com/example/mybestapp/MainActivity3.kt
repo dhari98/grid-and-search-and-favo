@@ -2,12 +2,11 @@ package com.example.mybestapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.room.Room
 import kotlinx.android.synthetic.main.activity_main3.*
+import kotlinx.android.synthetic.main.example_item4.*
 
 class MainActivity3 : AppCompatActivity() {
 
@@ -25,6 +24,7 @@ class MainActivity3 : AppCompatActivity() {
         users3.add(Example4(R.drawable.unlike,R.drawable.music,"              0","صفر              ","صفر              ",1))
         users3.add(Example4(R.drawable.unlike,R.drawable.music,"                1","بير                ","واحد              ",2))
 
+        /*
         users3.add(Example4(R.drawable.unlike,R.drawable.music,"                2","إكي               ","اثنان              ",3))
         users3.add(Example4(R.drawable.unlike,R.drawable.music,"                3","إِوچ               ","ثلاثة              ",4))
         users3.add(Example4(R.drawable.unlike,R.drawable.music,"              4","دورت              ","اربعة               ",5))
@@ -35,6 +35,9 @@ class MainActivity3 : AppCompatActivity() {
         users3.add(Example4(R.drawable.unlike,R.drawable.music,"            9","دوكوز             ","تسعة              ",10))
         users3.add(Example4(R.drawable.unlike,R.drawable.music,"               10","أَون               ","عشرة              ",11))
 
+        users3.add(Example4(R.drawable.unlike,R.drawable.music,"            9","دوكوز             ","تسعة              ",12))
+        users3.add(Example4(R.drawable.unlike,R.drawable.music,"               10","أَون               ","عشرة              ",13))
+         */
 
 
 
@@ -44,6 +47,26 @@ class MainActivity3 : AppCompatActivity() {
         val adapter1= ExampleAdapter3 (users3)
         recycler3.adapter= adapter1
 
+
+
+
+
+      //  imageViewLike = findViewById<View>(R.id.imageViewLike) as Button
+        imageViewLike?.setOnClickListener {
+            startActivity(
+                Intent(
+                    this@MainActivity3,
+                    FavoActivity::class.java
+                )
+            )
+
+
+
+        }
+    }
+}
+
+        /*
         imageViewLike = findViewById<View>(R.id.imageViewLike) as Button
         imageViewLike!!.setOnClickListener {
             startActivity(
@@ -76,3 +99,6 @@ class MainActivity3 : AppCompatActivity() {
 
 
 
+
+
+         */

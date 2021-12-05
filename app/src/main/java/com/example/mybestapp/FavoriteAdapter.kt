@@ -1,11 +1,10 @@
 package com.example.mybestapp
-
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.example_item4.view.*
 
@@ -30,8 +29,26 @@ class FavoriteAdapter(private val favoriteListEnteties: List<Example4>): Recycle
         holder.textView1.text = currentItemExample3.text1
         holder.textView2.text = currentItemExample3.text2
         holder.textView3.text = currentItemExample3.text3
-
         holder.my_data3 = currentItemExample3
+
+
+        holder.imageView2.setOnClickListener {
+            val dataBaseDao = FavoriteDatabase.getInstance(holder.itemView.context)?.favoriteDao()
+            val item = dataBaseDao?.getItem(favoriteListEnteties[position].id)
+            if (item == null) {
+                dataBaseDao?.addData(favoriteListEnteties[position].copy(isFavorite = true))
+                holder.imageView2.setImageResource(R.drawable.like)
+            } else {
+
+
+
+
+         //       Toast.makeText(FavoActivity(), "your message", Toast.LENGTH_LONG).show()
+                dataBaseDao.delete(item.copy(isFavorite = !item.isFavorite))
+                holder.imageView2.setImageResource(R.drawable.unlike)
+            }
+        }
+
     }
 
     override fun getItemCount() = favoriteListEnteties.size
@@ -48,6 +65,23 @@ class FavoriteAdapter(private val favoriteListEnteties: List<Example4>): Recycle
         val textView3: TextView = itemView.textViewWorld3
     }
 }
+
+
+
+
+/*
+        holder.imageView2.setOnClickListener {
+            val dataBaseDao = FavoriteDatabase.getInstance(holder.itemView.context)?.favoriteDao()
+            val item = dataBaseDao?.getItem(favoriteListEnteties[position].id)
+            if (item == null) {
+                dataBaseDao?.addData(favoriteListEnteties[position].copy(isFavorite = true))
+                holder.imageView2.setImageResource(R.drawable.like)
+            } else {
+                dataBaseDao.delete(item.copy(isFavorite = true))
+                holder.imageView2.setImageResource(R.drawable.unlike)
+            }
+}
+ */
 
 
 

@@ -21,7 +21,15 @@ interface FavoriteDao {
     @Query("SELECT * FROM Example4 WHERE id = :id")
     fun getItem(id: Int): Example4?
 
+/*
+    @Query("SELECT * FROM Example4 WHERE id = :id")
+    fun raw(id: Int): MediaPlayer?
+
+ */
+
 
     @Delete
-    fun delete(example4: Example4?)
+    fun delete(example4: Example4)
+
+
 }

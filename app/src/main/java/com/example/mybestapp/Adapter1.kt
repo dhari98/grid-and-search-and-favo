@@ -24,6 +24,9 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>) :
 
         val currentItemExample3 = exampleList3[position]
 
+
+
+
         currentItemExample3.imageViewLike.let { holder.imageView2.setImageResource(it) }
         currentItemExample3.imageViewSound.let { holder.imageView3.setImageResource(it) }
 
@@ -34,8 +37,6 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>) :
 
 
 
-
-
         holder.imageView2.setOnClickListener {
             val dataBaseDao = FavoriteDatabase.getInstance(holder.itemView.context)?.favoriteDao()
             val item = dataBaseDao?.getItem(exampleList3[position].id)
@@ -43,12 +44,18 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>) :
                 dataBaseDao?.addData(exampleList3[position].copy(isFavorite = true))
                 holder.imageView2.setImageResource(R.drawable.like)
             } else {
-                dataBaseDao.addData(item.copy(isFavorite = !item.isFavorite))
+                dataBaseDao.delete(item.copy(isFavorite = !item.isFavorite))
                 holder.imageView2.setImageResource(R.drawable.unlike)
             }
-        }
-    }
 
+
+
+        }
+
+
+
+
+        }
 
     override fun getItemCount() = exampleList3.size
 
@@ -61,6 +68,8 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>) :
 
         val imageView3: ImageView = itemView.imageViewSound
 
+
+
         init {
             imageView3.setOnClickListener {
                 if (position == 0) {
@@ -72,38 +81,6 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>) :
                     mediaPlayer?.start()
                 }
                 if (position == 2) {
-                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
-                    mediaPlayer?.start()
-                }
-                if (position == 3) {
-                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
-                    mediaPlayer?.start()
-                }
-                if (position == 4) {
-                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
-                    mediaPlayer?.start()
-                }
-                if (position == 5) {
-                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
-                    mediaPlayer?.start()
-                }
-                if (position == 6) {
-                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
-                    mediaPlayer?.start()
-                }
-                if (position == 7) {
-                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
-                    mediaPlayer?.start()
-                }
-                if (position == 8) {
-                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
-                    mediaPlayer?.start()
-                }
-                if (position == 9) {
-                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
-                    mediaPlayer?.start()
-                }
-                if (position == 10) {
                     val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
                     mediaPlayer?.start()
                 }
@@ -121,7 +98,44 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>) :
 }
 
 
+
 /*
+
+
+
+        if (MainActivity3.favoriteDatabase!!.favoriteDao()!!
+                .isFavorite(exampleList3)
+        )
+            holder.imageView2.setImageResource(R.drawable.like) else holder.imageView2.setImageResource(
+            R.drawable.unlike
+        )
+
+
+        holder.imageView2.setOnClickListener {
+            val dataBaseDao = FavoriteDatabase.getInstance(holder.itemView.context)?.favoriteDao()
+            val item = dataBaseDao?.getItem(exampleList3[position].id)
+            if (item == null) {
+                dataBaseDao?.addData(exampleList3[position].copy(isFavorite = true))
+                holder.imageView2.setImageResource(R.drawable.like)
+            } else {
+                dataBaseDao.addData(item.copy(isFavorite = !item.isFavorite))
+                holder.imageView2.setImageResource(R.drawable.unlike)
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             if (MainActivity.FavoriteDatabase!!.favoriteDao()!!
@@ -149,5 +163,6 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>) :
 
 
             }
+
 
  */
