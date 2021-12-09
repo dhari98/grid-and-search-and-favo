@@ -14,7 +14,7 @@ class FavoActivity : AppCompatActivity() {
         val favDao = FavoriteDatabase.getInstance(this)?.favoriteDao()
         val fav = favDao?.getAllFavorites() ?: listOf()
         val rv = findViewById<RecyclerView>(R.id.rec)
-        rv.setHasFixedSize(true)
+        rv.setHasFixedSize(false)
         rv.layoutManager = LinearLayoutManager(this)
         val adapter = FavoriteAdapter(fav)
         rv.adapter = adapter

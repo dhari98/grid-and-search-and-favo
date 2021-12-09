@@ -13,6 +13,7 @@ class MainActivity3 : AppCompatActivity() {
   private var imageViewLike: Button? =  null
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main3)
@@ -21,8 +22,12 @@ class MainActivity3 : AppCompatActivity() {
         val users3 = ArrayList<Example4> ()
 
         users3.add(Example4(R.drawable.unlike,R.drawable.music,"              0","صفر              ","صفر              ",0))
-        users3.add(Example4(R.drawable.unlike,R.drawable.music,"              0","صفر              ","صفر              ",1))
-        users3.add(Example4(R.drawable.unlike,R.drawable.music,"                1","بير                ","واحد              ",2))
+        users3.add(Example4(R.drawable.unlike,R.drawable.music,"              1","واحد              ","واحد              ",1))
+        users3.add(Example4(R.drawable.unlike,R.drawable.music,"                2","اثنين                ","اثنين              ",2))
+
+
+
+
 
         /*
         users3.add(Example4(R.drawable.unlike,R.drawable.music,"                2","إكي               ","اثنان              ",3))
@@ -51,8 +56,10 @@ class MainActivity3 : AppCompatActivity() {
 
 
 
-      //  imageViewLike = findViewById<View>(R.id.imageViewLike) as Button
+   //     imageViewLike = findViewById<View>(R.id.imageViewLike) as Button
         imageViewLike?.setOnClickListener {
+
+
             startActivity(
                 Intent(
                     this@MainActivity3,
@@ -61,8 +68,12 @@ class MainActivity3 : AppCompatActivity() {
             )
 
 
-
         }
+
+
+
+
+
     }
 }
 

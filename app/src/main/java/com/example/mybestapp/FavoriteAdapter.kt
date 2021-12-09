@@ -1,10 +1,10 @@
 package com.example.mybestapp
+import android.media.MediaPlayer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.example_item4.view.*
 
@@ -41,26 +41,81 @@ class FavoriteAdapter(private val favoriteListEnteties: List<Example4>): Recycle
             } else {
 
 
-
-
-         //       Toast.makeText(FavoActivity(), "your message", Toast.LENGTH_LONG).show()
+                //       Toast.makeText(FavoActivity(), "your message", Toast.LENGTH_LONG).show()
                 dataBaseDao.delete(item.copy(isFavorite = !item.isFavorite))
                 holder.imageView2.setImageResource(R.drawable.unlike)
             }
         }
 
     }
-
     override fun getItemCount() = favoriteListEnteties.size
 
     class ExampleViewHolder(itemView3: View, var my_data3: Example4? = null) :
         RecyclerView.ViewHolder(itemView3) {
 
         val imageView2: ImageView = itemView.imageViewLike
-
         val imageView3: ImageView = itemView.imageViewSound
 
-        val textView1: TextView = itemView.textViewWorld
+
+        init {
+
+
+            imageView3.setOnClickListener {
+
+
+                if (my_data3?.id == 0) {
+                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
+                    mediaPlayer?.start()
+                }
+                if (my_data3?.id == 1) {
+                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.yesil)
+                    mediaPlayer?.start()
+                }
+                if (my_data3?.id == 2) {
+                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.turuncu)
+                    mediaPlayer?.start()
+                }
+
+
+                if (my_data3?.id == 3) {
+                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.sokak)
+                    mediaPlayer?.start()
+                }
+                if (my_data3?.id == 4) {
+                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.sehir)
+                    mediaPlayer?.start()
+                }
+                if (my_data3?.id == 5) {
+                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.okul)
+                    mediaPlayer?.start()
+                }
+                if (my_data3?.id == 6) {
+                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
+                    mediaPlayer?.start()
+                }
+                if (my_data3?.id == 7) {
+                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.turuncu)
+                    mediaPlayer?.start()
+                }
+                if (my_data3?.id ==8) {
+                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.sehir)
+                    mediaPlayer?.start()
+                }
+                if (my_data3?.id == 9) {
+                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.okul)
+                    mediaPlayer?.start()
+                }
+
+
+
+
+
+
+            }
+        }
+
+
+            val textView1: TextView = itemView.textViewWorld
         val textView2: TextView = itemView.textViewWorld2
         val textView3: TextView = itemView.textViewWorld3
     }

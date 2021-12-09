@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.example_item4.view.*
 
@@ -17,16 +18,23 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>) :
 
         val itemView3 =
             LayoutInflater.from(parent.context).inflate(R.layout.example_item4, parent, false)
-        return ExampleViewHolder(itemView3)
+        return ExampleViewHolder(itemView3 )
+
+
+
+
+      //  val position : Int? = null
     }
+
+
 
     override fun onBindViewHolder(holder: ExampleViewHolder, position: Int) {
 
+
+
         val currentItemExample3 = exampleList3[position]
 
-
-
-
+     
         currentItemExample3.imageViewLike.let { holder.imageView2.setImageResource(it) }
         currentItemExample3.imageViewSound.let { holder.imageView3.setImageResource(it) }
 
@@ -37,8 +45,14 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>) :
 
 
 
-        holder.imageView2.setOnClickListener {
+        holder.imageView2.setOnClickListener { view ->
+
+
+
+       //     Toast.makeText(MainActivity3.this, "Clicked", Toast. LENGTH_SHORT).show()
+
             val dataBaseDao = FavoriteDatabase.getInstance(holder.itemView.context)?.favoriteDao()
+
             val item = dataBaseDao?.getItem(exampleList3[position].id)
             if (item == null) {
                 dataBaseDao?.addData(exampleList3[position].copy(isFavorite = true))
@@ -60,7 +74,12 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>) :
     override fun getItemCount() = exampleList3.size
 
     class ExampleViewHolder(itemView3: View, var my_data3: Example4? = null) :
+
+    //  class ExampleViewHolder(itemView3: View, private var position: Int?, var my_data3: Example4? = null) :
         RecyclerView.ViewHolder(itemView3) {
+
+
+
         //  val imageView1: ImageView = itemView.imageViewWorld
 
 
@@ -70,23 +89,33 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>) :
 
 
 
+
         init {
+
+
+        //    itemId
+
             imageView3.setOnClickListener {
-                if (position == 0) {
-                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
-                    mediaPlayer?.start()
-                }
-                if (position == 1) {
-                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
-                    mediaPlayer?.start()
-                }
-                if (position == 2) {
-                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
-                    mediaPlayer?.start()
-                }
 
 
-            }
+
+                if (my_data3?.id == 0) {
+                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
+                    mediaPlayer?.start()
+                }
+                if (my_data3?.id == 1) {
+                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.yesil)
+                    mediaPlayer?.start()
+                }
+                if (my_data3?.id == 2) {
+                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.turuncu)
+                    mediaPlayer?.start()
+                }
+}
+
+
+
+
         }
 
         val textView1: TextView = itemView.textViewWorld

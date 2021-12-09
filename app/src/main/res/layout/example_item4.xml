@@ -38,8 +38,6 @@
             app:srcCompat="@drawable/unlike"
             tools:ignore="ImageContrastCheck" />
 
-
-
         <TextView
             android:id="@+id/textViewWorld3"
             android:layout_width="wrap_content"

@@ -7,6 +7,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
 
+
 @Dao
 interface FavoriteDao {
     @Insert(onConflict = REPLACE)
@@ -21,11 +22,6 @@ interface FavoriteDao {
     @Query("SELECT * FROM Example4 WHERE id = :id")
     fun getItem(id: Int): Example4?
 
-/*
-    @Query("SELECT * FROM Example4 WHERE id = :id")
-    fun raw(id: Int): MediaPlayer?
-
- */
 
 
     @Delete

@@ -24,7 +24,7 @@ data class Example4(
     @PrimaryKey
     val id: Int = -1,
 
-    @ColumnInfo val isFavorite: Boolean = true
+    @ColumnInfo val isFavorite: Boolean = false
 
 // @ColumnInfo val isFavorite: Boolean = false
 )

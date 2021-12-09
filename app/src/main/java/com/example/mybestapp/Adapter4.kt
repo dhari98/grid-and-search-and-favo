@@ -12,6 +12,8 @@ import kotlinx.android.synthetic.main.example_item4.view.*
 
 class ExampleAdapter4(private val exampleList3: ArrayList<Example4>): RecyclerView.Adapter<ExampleAdapter4.ExampleViewHolder> () {
 
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExampleViewHolder {
 
         val itemView3 =
@@ -30,12 +32,35 @@ class ExampleAdapter4(private val exampleList3: ArrayList<Example4>): RecyclerVi
         holder.textView2.text = currentItemExample3.text2
         holder.textView3.text = currentItemExample3.text3
 
-        holder.my_data3 = currentItemExample3
+        holder.my_data4 = currentItemExample3
+
+
+
+
+
+
+        holder.imageView2.setOnClickListener {
+
+
+            val dataBaseDao = FavoriteDatabase.getInstance(holder.itemView.context)?.favoriteDao()
+            val item = dataBaseDao?.getItem(exampleList3[position].id)
+            if (item == null) {
+                dataBaseDao?.addData(exampleList3[position].copy(isFavorite = true))
+                holder.imageView2.setImageResource(R.drawable.like)
+            } else {
+                dataBaseDao.delete(item.copy(isFavorite = !item.isFavorite))
+                holder.imageView2.setImageResource(R.drawable.unlike)
+            }
+
+
+
+        }
+
     }
 
     override fun getItemCount() = exampleList3.size
 
-    class ExampleViewHolder(itemView3: View, var my_data3: Example4? = null) :
+    class ExampleViewHolder(itemView3: View, var my_data4: Example4? = null) :
         RecyclerView.ViewHolder(itemView3) {
         //  val imageView1: ImageView = itemView.imageViewWorld
 
@@ -51,44 +76,45 @@ class ExampleAdapter4(private val exampleList3: ArrayList<Example4>): RecyclerVi
         val imageView3: ImageView = itemView.imageViewSound
         init {
             imageView3.setOnClickListener {
-                if (position == 0) {
+
+
+
+                //            if (position == 9) {
+                //                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
+                //                    mediaPlayer?.start()
+                //                }
+
+
+
+
+
+
+                if (my_data4?.id == 3) {
+                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.sokak)
+                    mediaPlayer?.start()
+                }
+                if (my_data4?.id == 4) {
+                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.sehir)
+                    mediaPlayer?.start()
+                }
+                if (my_data4?.id == 5) {
+                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.okul)
+                    mediaPlayer?.start()
+                }
+                if (my_data4?.id == 6) {
                     val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
                     mediaPlayer?.start()
                 }
-                if (position == 1) {
-                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
+                if (my_data4?.id == 7) {
+                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.turuncu)
                     mediaPlayer?.start()
                 }
-                if (position == 2) {
-                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
+                if (my_data4?.id ==8) {
+                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.sehir)
                     mediaPlayer?.start()
                 }
-                if (position == 3) {
-                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
-                    mediaPlayer?.start()
-                }
-                if (position == 4) {
-                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
-                    mediaPlayer?.start()
-                }
-                if (position == 5) {
-                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
-                    mediaPlayer?.start()
-                }
-                if (position == 6) {
-                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
-                    mediaPlayer?.start()
-                }
-                if (position == 7) {
-                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
-                    mediaPlayer?.start()
-                }
-                if (position == 8) {
-                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
-                    mediaPlayer?.start()
-                }
-                if (position == 9) {
-                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
+                if (my_data4?.id == 9) {
+                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.okul)
                     mediaPlayer?.start()
                 }
 
