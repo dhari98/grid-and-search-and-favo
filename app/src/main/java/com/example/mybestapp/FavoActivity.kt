@@ -1,10 +1,9 @@
 package com.example.mybestapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.example_item4.*
 
 class FavoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

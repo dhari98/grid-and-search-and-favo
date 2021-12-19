@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.example_item4.view.*
 
@@ -38,24 +39,21 @@ class ExampleAdapter4(private val exampleList3: ArrayList<Example4>): RecyclerVi
 
 
 
-
         holder.imageView2.setOnClickListener {
 
-
+            holder.itemView.context
+            Toast.makeText( holder.itemView.context,"تم الإضافة في قائمة ألمفضلة", Toast.LENGTH_SHORT).show()
             val dataBaseDao = FavoriteDatabase.getInstance(holder.itemView.context)?.favoriteDao()
             val item = dataBaseDao?.getItem(exampleList3[position].id)
             if (item == null) {
                 dataBaseDao?.addData(exampleList3[position].copy(isFavorite = true))
                 holder.imageView2.setImageResource(R.drawable.like)
             } else {
+                Toast.makeText( holder.itemView.context,"تم ألحذف من قائمة ألمفضلة", Toast.LENGTH_SHORT).show()
                 dataBaseDao.delete(item.copy(isFavorite = !item.isFavorite))
                 holder.imageView2.setImageResource(R.drawable.unlike)
             }
-
-
-
         }
-
     }
 
     override fun getItemCount() = exampleList3.size
@@ -83,9 +81,6 @@ class ExampleAdapter4(private val exampleList3: ArrayList<Example4>): RecyclerVi
                 //                    val mediaPlayer: MediaPlayer? = MediaPlayer.create(it.context, R.raw.abdwap)
                 //                    mediaPlayer?.start()
                 //                }
-
-
-
 
 
 

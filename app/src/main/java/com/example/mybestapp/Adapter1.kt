@@ -14,6 +14,10 @@ import kotlinx.android.synthetic.main.example_item4.view.*
 class ExampleAdapter3(private val exampleList3: ArrayList<Example4>) :
     RecyclerView.Adapter<ExampleAdapter3.ExampleViewHolder>() {
 
+
+
+    val context:Int?=null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExampleViewHolder {
 
         val itemView3 =
@@ -22,8 +26,6 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>) :
 
 
 
-
-      //  val position : Int? = null
     }
 
 
@@ -31,8 +33,9 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>) :
     override fun onBindViewHolder(holder: ExampleViewHolder, position: Int) {
 
 
-
         val currentItemExample3 = exampleList3[position]
+
+
 
      
         currentItemExample3.imageViewLike.let { holder.imageView2.setImageResource(it) }
@@ -45,11 +48,15 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>) :
 
 
 
-        holder.imageView2.setOnClickListener { view ->
+
+        holder.imageView2.setOnClickListener {
 
 
 
-       //     Toast.makeText(MainActivity3.this, "Clicked", Toast. LENGTH_SHORT).show()
+            holder.itemView.context
+
+            Toast.makeText( holder.itemView.context,"تم الإضافة في قائمة ألمفضلة",Toast.LENGTH_SHORT).show()
+
 
             val dataBaseDao = FavoriteDatabase.getInstance(holder.itemView.context)?.favoriteDao()
 
@@ -58,6 +65,7 @@ class ExampleAdapter3(private val exampleList3: ArrayList<Example4>) :
                 dataBaseDao?.addData(exampleList3[position].copy(isFavorite = true))
                 holder.imageView2.setImageResource(R.drawable.like)
             } else {
+                Toast.makeText( holder.itemView.context,"تم ألحذف من قائمة ألمفضلة",Toast.LENGTH_SHORT).show()
                 dataBaseDao.delete(item.copy(isFavorite = !item.isFavorite))
                 holder.imageView2.setImageResource(R.drawable.unlike)
             }
